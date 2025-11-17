@@ -108,7 +108,7 @@ export default function AgeVerificationPage() {
                 transition={{ delay: 0.8 }}
                 className="text-center mb-8"
               >
-                <p className="text-2xl font-heading font-semibold text-gray-900">
+                <p className="text-2xl font-body font-semibold text-gray-900">
                   あなたは18歳以上ですか?
                 </p>
               </motion.div>
@@ -125,7 +125,7 @@ export default function AgeVerificationPage() {
                   <motion.button
                     whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-bold py-5 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-lg"
+                    className="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-bold py-5 px-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-lg"
                   >
                     <span className="flex items-center justify-center gap-2">
                       はい、18歳以上です
@@ -153,7 +153,7 @@ export default function AgeVerificationPage() {
                   onClick={() => {
                     window.location.href = "https://www.google.com";
                   }}
-                  className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-5 px-8 rounded-xl border-2 border-gray-300 transition-all duration-200 text-lg"
+                  className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-5 px-4 rounded-xl border-2 border-gray-300 transition-all duration-200 text-lg"
                 >
                   <span className="flex items-center justify-center gap-2">
                     いいえ、18歳未満です
