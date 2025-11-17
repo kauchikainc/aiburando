@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**
@@ -21,20 +22,25 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-pink-100 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white border-b border-pink-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* ロゴ */}
-          <Link href="/home" className="flex items-center space-x-3 group">
-            <div className="flex items-center">
-              <h1 className="text-2xl md:text-3xl font-heading font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">
-                アイブランド帯広
-              </h1>
+          <Link href="/home" className="flex items-center space-x-3 group h-24">
+            <div className="relative h-24 w-auto">
+              <Image
+                src="/images/logo.png"
+                alt="アイブランド帯広"
+                height={64}
+                width={267}
+                className="object-contain"
+                priority
+              />
             </div>
           </Link>
 
           {/* デスクトップナビゲーション */}
-          <nav className="hidden md:flex items-center space-x-1">
+          <nav className="hidden md:flex items-center space-x-1 h-24">
             {navItems.map((item) => (
               <Link
                 key={item.href}

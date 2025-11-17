@@ -59,7 +59,7 @@ export default function SystemPage() {
 
         {/* 基本料金セクション */}
         <section className="py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div {...fadeInUp} className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
                 基本料金
@@ -87,7 +87,7 @@ export default function SystemPage() {
                     </div>
                   )}
                   <div
-                    className={`bg-gradient-to-br rounded-2xl p-6 text-center transition-all duration-300 h-full flex flex-col justify-center ${
+                    className={`bg-gradient-to-br rounded-2xl p-6 md:p-8 text-center transition-all duration-300 h-full flex flex-col justify-center ${
                       item.popular
                         ? "from-primary-500 to-primary-600 text-white shadow-2xl border-4 border-yellow-400"
                         : "from-white to-pink-50 text-gray-900 shadow-lg hover:shadow-xl border-2 border-pink-100"
@@ -101,7 +101,7 @@ export default function SystemPage() {
                       {item.time}コース
                     </p>
                     <p
-                      className={`text-4xl font-heading font-bold mb-1 ${
+                      className={`text-4xl font-bold mb-1 ${
                         item.popular ? "text-white" : "text-gray-900"
                       }`}
                     >
