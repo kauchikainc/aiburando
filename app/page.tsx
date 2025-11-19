@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 /**
  * 18歳以上確認ページ（エントランス）
@@ -35,34 +36,47 @@ export default function AgeVerificationPage() {
         >
           {/* メインカード */}
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-pink-100">
-            {/* ヘッダー - ピンクのグラデーション */}
-            <div className="bg-gradient-to-r from-primary-500 to-primary-600 px-8 py-12 text-center">
+            {/* ヘッダー - 背景画像とオーバーレイ */}
+            <div className="relative h-64 md:h-80">
+              {/* 背景画像 */}
+              <Image
+                src="/images/hero/hero.jpg"
+                alt="アイブランド帯広"
+                fill
+                className="object-cover"
+                priority
+              />
+              {/* グラデーションオーバーレイ */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
+
+              {/* テキストオーバーレイ - 下部に配置 */}
               <motion.div
-                initial={{ scale: 0.9 }}
-                animate={{ scale: 1 }}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
+                className="absolute bottom-0 left-0 right-0 px-8 py-8 text-center"
               >
-                <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-3 tracking-wide">
+                <h1 className="text-4xl md:text-5xl font-heading font-bold text-white mb-2 tracking-wide drop-shadow-lg">
                   アイブランド帯広
                 </h1>
-                <p className="text-pink-100 text-lg font-light tracking-widest">
+                <p className="text-pink-100 text-lg font-light tracking-widest drop-shadow-md">
                   I-BRAND OBIHIRO
                 </p>
               </motion.div>
             </div>
 
             {/* コンテンツエリア */}
-            <div className="px-8 py-12 md:px-12 md:py-16">
+            <div className="px-8 py-8 md:px-12 md:py-10">
               {/* 警告アイコンと見出し */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-center mb-10"
+                className="text-center mb-6"
               >
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary-100 mb-6">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-100 mb-3">
                   <svg
-                    className="w-10 h-10 text-primary-600"
+                    className="w-8 h-8 text-primary-600"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -75,10 +89,10 @@ export default function AgeVerificationPage() {
                     />
                   </svg>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-2">
                   年齢確認
                 </h2>
-                <p className="text-lg text-gray-600 leading-relaxed">
+                <p className="text-base text-gray-600 leading-relaxed">
                   このサイトには成人向けコンテンツが含まれています
                 </p>
               </motion.div>
@@ -99,6 +113,24 @@ export default function AgeVerificationPage() {
                   <strong className="text-primary-700 font-bold">違反した場合は法的責任を問われる可能性があります</strong>
                   。
                 </p>
+              </motion.div>
+
+              {/* 18ng.png 画像 */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.7 }}
+                className="text-center mb-6"
+              >
+                <div className="relative w-24 mx-auto">
+                  <Image
+                    src="/images/18ng.png"
+                    alt="18歳未満禁止"
+                    width={96}
+                    height={48}
+                    className="w-full h-auto"
+                  />
+                </div>
               </motion.div>
 
               {/* 質問 */}
