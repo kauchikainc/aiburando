@@ -29,26 +29,29 @@ export default function Footer({ basePath = "" }: { basePath?: string }) {
                   ホーム
                 </Link>
               </li>
+              {basePath !== "/starter" && (
+                <>
+                  <li>
+                    <Link href={`${basePath}/cast`} className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
+                      キャスト一覧
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`${basePath}/info`} className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
+                      店舗情報
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={`${basePath}/system`} className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
+                      料金システム
+                    </Link>
+                  </li>
+                </>
+              )}
               <li>
-                {basePath === "/starter" ? (
-                  <a href="https://www.cityheaven.net" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                    キャスト一覧
-                  </a>
-                ) : (
-                  <Link href={`${basePath}/cast`} className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                    キャスト一覧
-                  </Link>
-                )}
-              </li>
-              <li>
-                <Link href={`${basePath}/info`} className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                  店舗情報
-                </Link>
-              </li>
-              <li>
-                <Link href={`${basePath}/system`} className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                  料金システム
-                </Link>
+                <a href="https://www.cityheaven.net" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
+                  出勤予定
+                </a>
               </li>
             </ul>
           </div>
@@ -79,14 +82,16 @@ export default function Footer({ basePath = "" }: { basePath?: string }) {
             <p className="text-gray-500 text-sm">
               © 2024 アイブランド帯広. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm text-gray-500">
-              <Link href={`${basePath}/privacy`} className="hover:text-primary-400 transition-colors">
-                プライバシーポリシー
-              </Link>
-              <Link href={`${basePath}/terms`} className="hover:text-primary-400 transition-colors">
-                利用規約
-              </Link>
-            </div>
+            {basePath !== "/starter" && (
+              <div className="flex gap-6 text-sm text-gray-500">
+                <Link href={`${basePath}/privacy`} className="hover:text-primary-400 transition-colors">
+                  プライバシーポリシー
+                </Link>
+                <Link href={`${basePath}/terms`} className="hover:text-primary-400 transition-colors">
+                  利用規約
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* 18歳未満警告 */}

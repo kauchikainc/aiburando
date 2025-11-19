@@ -14,15 +14,17 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Header({ basePath = "" }: { basePath?: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navItems = [
-    { href: `${basePath}/home`, label: "ホーム" },
-    // basePath が "/starter" の場合のみ cityheaven へ、それ以外は /cast へ
-    basePath === "/starter"
-      ? { href: "https://www.cityheaven.net", label: "キャスト", external: true }
-      : { href: `${basePath}/cast`, label: "キャスト" },
-    { href: `${basePath}/info`, label: "店舗情報" },
-    { href: `${basePath}/system`, label: "料金システム" },
-  ];
+  // basePath が "/starter" の場合はシンプルなナビゲーション
+  const navItems = basePath === "/starter"
+    ? [
+        { href: `${basePath}/home`, label: "ホーム" },
+      ]
+    : [
+        { href: `${basePath}/home`, label: "ホーム" },
+        { href: `${basePath}/cast`, label: "キャスト" },
+        { href: `${basePath}/info`, label: "店舗情報" },
+        { href: `${basePath}/system`, label: "料金システム" },
+      ];
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-pink-100 shadow-sm">
