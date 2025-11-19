@@ -3,7 +3,7 @@ import Link from "next/link";
 /**
  * サイトフッターコンポーネント
  */
-export default function Footer() {
+export default function Footer({ basePath = "" }: { basePath?: string }) {
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -25,22 +25,28 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-4 text-pink-300">クイックリンク</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/home" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
+                <Link href={`${basePath}/home`} className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
                   ホーム
                 </Link>
               </li>
               <li>
-                <Link href="/cast" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
-                  キャスト一覧
-                </Link>
+                {basePath === "/starter" ? (
+                  <a href="https://www.cityheaven.net" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
+                    キャスト一覧
+                  </a>
+                ) : (
+                  <Link href={`${basePath}/cast`} className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
+                    キャスト一覧
+                  </Link>
+                )}
               </li>
               <li>
-                <Link href="/info" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
+                <Link href={`${basePath}/info`} className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
                   店舗情報
                 </Link>
               </li>
               <li>
-                <Link href="/system" className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
+                <Link href={`${basePath}/system`} className="text-gray-400 hover:text-primary-400 transition-colors text-sm">
                   料金システム
                 </Link>
               </li>
@@ -74,10 +80,10 @@ export default function Footer() {
               © 2024 アイブランド帯広. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-gray-500">
-              <Link href="/privacy" className="hover:text-primary-400 transition-colors">
+              <Link href={`${basePath}/privacy`} className="hover:text-primary-400 transition-colors">
                 プライバシーポリシー
               </Link>
-              <Link href="/terms" className="hover:text-primary-400 transition-colors">
+              <Link href={`${basePath}/terms`} className="hover:text-primary-400 transition-colors">
                 利用規約
               </Link>
             </div>

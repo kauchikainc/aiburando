@@ -11,14 +11,17 @@ import { motion, AnimatePresence } from "framer-motion";
  * 白背景にピンクのアクセントカラーを使用
  * モバイル対応のハンバーガーメニュー実装
  */
-export default function Header() {
+export default function Header({ basePath = "" }: { basePath?: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { href: "/home", label: "ホーム" },
-    { href: "/cast", label: "キャスト" },
-    { href: "/info", label: "店舗情報" },
-    { href: "/system", label: "料金システム" },
+    { href: `${basePath}/home`, label: "ホーム" },
+    // basePath が "/starter" の場合のみ cityheaven へ、それ以外は /cast へ
+    basePath === "/starter"
+      ? { href: "https://www.cityheaven.net", label: "キャスト", external: true }
+      : { href: `${basePath}/cast`, label: "キャスト" },
+    { href: `${basePath}/info`, label: "店舗情報" },
+    { href: `${basePath}/system`, label: "料金システム" },
   ];
 
   return (
@@ -26,7 +29,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           {/* ロゴ */}
-          <Link href="/home" className="flex items-center space-x-3 group h-24">
+          <Link href={`${basePath}/home`} className="flex items-center space-x-3 group h-24">
             <div className="relative h-24 w-auto">
               <Image
                 src="/images/logo.png"
@@ -42,14 +45,27 @@ export default function Header() {
           {/* デスクトップナビゲーション */}
           <nav className="hidden md:flex items-center space-x-1 h-24">
             {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-4 py-2 text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200 relative group"
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-primary-600 group-hover:w-full transition-all duration-300" />
-              </Link>
+              item.external ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200 relative group"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-primary-600 group-hover:w-full transition-all duration-300" />
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="px-4 py-2 text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200 relative group"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-primary-600 group-hover:w-full transition-all duration-300" />
+                </Link>
+              )
             ))}
 
             {/* Cityheavenへのリンク */}
@@ -109,14 +125,27 @@ export default function Header() {
             >
               <div className="flex flex-col space-y-1">
                 {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-primary-600 font-medium rounded-lg transition-colors duration-200"
-                  >
-                    {item.label}
-                  </Link>
+                  item.external ? (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-primary-600 font-medium rounded-lg transition-colors duration-200"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-primary-600 font-medium rounded-lg transition-colors duration-200"
+                    >
+                      {item.label}
+                    </Link>
+                  )
                 ))}
                 <a
                   href="https://www.cityheaven.net"
