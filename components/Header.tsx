@@ -15,7 +15,7 @@ export default function Header({ basePath = "" }: { basePath?: string }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // basePath が "/starter" の場合はシンプルなナビゲーション
-  const navItems = basePath === "/starter"
+  const navItems: Array<{ href: string; label: string; external?: boolean }> = basePath === "/starter"
     ? [
         { href: `${basePath}/home`, label: "ホーム" },
       ]
