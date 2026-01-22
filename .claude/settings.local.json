@@ -7,7 +7,9 @@
       "Bash(npm run dev:*)",
       "Bash(TZ=Asia/Tokyo date:*)",
       "Bash(tree:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npm i:*)",
+      "Bash(npm audit fix:*)"
     ],
     "deny": [],
     "ask": []
