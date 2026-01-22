@@ -5,7 +5,9 @@
       "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-src --import-alias \"@/*\" --use-npm)",
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
-      "Bash(TZ=Asia/Tokyo date:*)"
+      "Bash(TZ=Asia/Tokyo date:*)",
+      "Bash(tree:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
