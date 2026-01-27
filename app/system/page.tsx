@@ -7,6 +7,7 @@ import SiteFooter from "@/components/SiteFooter";
 /**
  * 料金システムページ
  * PC版とモバイル版でレイアウトを分離
+ * 白基調デザイン
  */
 export default function SystemPage() {
   const pricingData = [
@@ -30,25 +31,25 @@ export default function SystemPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gray-50">
       <SiteHeader />
 
       {/* ===== PC版メインコンテンツ ===== */}
       <main className="hidden md:block">
         {/* ヘッダーセクション */}
-        <section className="relative py-16 bg-gradient-to-b from-gray-900 to-black">
+        <section className="relative py-16 bg-gradient-to-b from-pink-50 to-white">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <h1 className="text-4xl font-heading font-bold text-white mb-2">
-              <span className="text-pink-400">料金</span>システム
+            <h1 className="text-4xl font-heading font-bold text-gray-800 mb-2">
+              <span className="text-pink-500">料金</span>システム
             </h1>
-            <p className="text-gray-400">明朗会計で安心してご利用いただけます</p>
+            <p className="text-gray-500">明朗会計で安心してご利用いただけます</p>
           </div>
         </section>
 
         {/* 基本料金 */}
-        <section className="py-16">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-2xl font-bold text-white text-center mb-8">基本料金</h2>
+            <h2 className="text-2xl font-bold text-gray-800 text-center mb-8">基本料金</h2>
             <div className="grid grid-cols-5 gap-4">
               {pricingData.map((item, index) => (
                 <motion.div
@@ -68,38 +69,38 @@ export default function SystemPage() {
                   <div className={`rounded-xl p-6 text-center h-full ${
                     item.popular
                       ? "bg-gradient-to-b from-pink-500 to-pink-600 text-white border-2 border-yellow-400"
-                      : "bg-gray-900 text-white border border-gray-800"
+                      : "bg-white text-gray-800 border border-gray-200 shadow-sm"
                   }`}>
-                    <p className={`text-sm font-bold mb-2 ${item.popular ? "text-pink-100" : "text-pink-400"}`}>
+                    <p className={`text-sm font-bold mb-2 ${item.popular ? "text-pink-100" : "text-pink-500"}`}>
                       {item.time}コース
                     </p>
                     <p className="text-3xl font-bold mb-1">{item.price}</p>
-                    <p className={`text-xs ${item.popular ? "text-pink-100" : "text-gray-500"}`}>(税込)</p>
+                    <p className={`text-xs ${item.popular ? "text-pink-100" : "text-gray-400"}`}>(税込)</p>
                   </div>
                 </motion.div>
               ))}
             </div>
-            <p className="text-center text-gray-500 text-sm mt-6">
+            <p className="text-center text-gray-400 text-sm mt-6">
               ※上記料金には、指名料・交通費は含まれておりません
             </p>
           </div>
         </section>
 
         {/* 2カラムレイアウト: オプション + 割引 */}
-        <section className="py-16 bg-gray-900/50">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-2 gap-8">
               {/* オプション料金 */}
               <div>
-                <h2 className="text-2xl font-bold text-white mb-6">オプション料金</h2>
-                <div className="bg-gray-900 rounded-xl overflow-hidden border border-gray-800">
+                <h2 className="text-2xl font-bold text-gray-800 mb-6">オプション料金</h2>
+                <div className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm">
                   {optionData.map((item, index) => (
-                    <div key={index} className={`p-4 flex items-center justify-between ${index !== optionData.length - 1 ? "border-b border-gray-800" : ""}`}>
+                    <div key={index} className={`p-4 flex items-center justify-between ${index !== optionData.length - 1 ? "border-b border-gray-100" : ""}`}>
                       <div>
-                        <h3 className="text-white font-bold">{item.name}</h3>
-                        {item.note && <p className="text-xs text-gray-500">{item.note}</p>}
+                        <h3 className="text-gray-800 font-bold">{item.name}</h3>
+                        {item.note && <p className="text-xs text-gray-400">{item.note}</p>}
                       </div>
-                      <p className="text-xl font-bold text-pink-400">{item.price}</p>
+                      <p className="text-xl font-bold text-pink-500">{item.price}</p>
                     </div>
                   ))}
                 </div>
@@ -107,7 +108,7 @@ export default function SystemPage() {
 
               {/* 割引制度 */}
               <div>
-                <h2 className="text-2xl font-bold text-white mb-6">お得な割引制度</h2>
+                <h2 className="text-2xl font-bold text-gray-800 mb-6">お得な割引制度</h2>
                 <div className="space-y-4">
                   {discounts.map((item, index) => (
                     <motion.div
@@ -115,14 +116,14 @@ export default function SystemPage() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="bg-gradient-to-r from-pink-900/50 to-purple-900/50 rounded-xl p-4 border border-pink-500/30"
+                      className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl p-4 border border-pink-200"
                     >
                       <div className="flex items-center justify-between">
                         <div>
-                          <h3 className="text-white font-bold">{item.title}</h3>
-                          <p className="text-xs text-gray-400">{item.description}</p>
+                          <h3 className="text-gray-800 font-bold">{item.title}</h3>
+                          <p className="text-xs text-gray-500">{item.description}</p>
                         </div>
-                        <p className="text-2xl font-bold text-yellow-400">{item.discount}</p>
+                        <p className="text-2xl font-bold text-pink-500">{item.discount}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -133,15 +134,15 @@ export default function SystemPage() {
         </section>
 
         {/* サービス内容 */}
-        <section className="py-16">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-2xl font-bold text-white text-center mb-8">サービス内容</h2>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
+            <h2 className="text-2xl font-bold text-gray-800 text-center mb-8">サービス内容</h2>
+            <div className="max-w-2xl mx-auto">
+              <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
                 <div className="inline-block bg-gradient-to-r from-pink-500 to-pink-600 text-white px-4 py-1 rounded-full font-bold text-sm mb-4">
                   基本サービス
                 </div>
-                <div className="grid grid-cols-2 gap-3 text-gray-300">
+                <div className="grid grid-cols-3 gap-3 text-gray-600">
                   {["キス", "ディープキス", "全身リップ", "ボディマッサージ", "フェラチオ", "素股"].map((item, i) => (
                     <div key={i} className="flex items-center gap-2">
                       <svg className="w-4 h-4 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -153,8 +154,8 @@ export default function SystemPage() {
                 </div>
               </div>
             </div>
-            <div className="mt-6 bg-yellow-900/30 border-l-4 border-yellow-500 p-4 rounded-r-lg">
-              <p className="text-yellow-200 text-sm">
+            <div className="mt-6 max-w-2xl mx-auto bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+              <p className="text-yellow-800 text-sm">
                 <strong>※ご注意:</strong> 本番行為は法律で禁止されております。キャストによって対応できるプレイ内容が異なる場合がございます。
               </p>
             </div>
@@ -184,16 +185,16 @@ export default function SystemPage() {
       {/* ===== モバイル版メインコンテンツ ===== */}
       <main className="md:hidden">
         {/* ヘッダー */}
-        <section className="bg-gradient-to-b from-gray-900 to-black py-6 px-4 text-center">
-          <h1 className="text-2xl font-heading font-bold text-white mb-1">
-            <span className="text-pink-400">料金</span>システム
+        <section className="bg-gradient-to-b from-pink-50 to-white py-6 px-4 text-center">
+          <h1 className="text-2xl font-heading font-bold text-gray-800 mb-1">
+            <span className="text-pink-500">料金</span>システム
           </h1>
-          <p className="text-xs text-gray-400">明朗会計で安心してご利用いただけます</p>
+          <p className="text-xs text-gray-500">明朗会計で安心してご利用いただけます</p>
         </section>
 
         {/* 基本料金 */}
-        <section className="bg-gray-900 py-4 px-3">
-          <h2 className="text-white font-bold text-sm mb-3">基本料金</h2>
+        <section className="bg-white py-4 px-3">
+          <h2 className="text-gray-800 font-bold text-sm mb-3">基本料金</h2>
           <div className="space-y-2">
             {pricingData.map((item, index) => (
               <div
@@ -201,67 +202,65 @@ export default function SystemPage() {
                 className={`rounded-lg p-3 flex items-center justify-between ${
                   item.popular
                     ? "bg-gradient-to-r from-pink-500 to-pink-600 border-2 border-yellow-400"
-                    : "bg-gray-800"
+                    : "bg-gray-50 border border-gray-200"
                 }`}
               >
                 <div className="flex items-center gap-2">
                   {item.popular && (
                     <span className="bg-yellow-400 text-black px-2 py-0.5 rounded text-[10px] font-bold">人気</span>
                   )}
-                  <span className={`font-bold ${item.popular ? "text-white" : "text-pink-400"}`}>{item.time}</span>
+                  <span className={`font-bold ${item.popular ? "text-white" : "text-pink-500"}`}>{item.time}</span>
                 </div>
-                <span className="text-white font-bold text-lg">{item.price}</span>
+                <span className={`font-bold text-lg ${item.popular ? "text-white" : "text-gray-800"}`}>{item.price}</span>
               </div>
             ))}
           </div>
-          <p className="text-gray-500 text-[10px] mt-2 text-center">
+          <p className="text-gray-400 text-[10px] mt-2 text-center">
             ※指名料・交通費は別途
           </p>
         </section>
 
         {/* 割引制度 */}
-        <section className="bg-gradient-to-r from-red-600 to-pink-600 p-3">
+        <section className="bg-gradient-to-r from-pink-500 to-pink-600 p-3">
           <h2 className="text-white font-bold text-sm mb-3">お得な割引</h2>
           <div className="space-y-2">
             {discounts.map((item, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur rounded-lg p-3 flex items-center justify-between">
+              <div key={index} className="bg-white/20 backdrop-blur rounded-lg p-3 flex items-center justify-between">
                 <div>
                   <p className="text-white font-bold text-sm">{item.title}</p>
-                  <p className="text-pink-200 text-[10px]">{item.description}</p>
+                  <p className="text-pink-100 text-[10px]">{item.description}</p>
                 </div>
-                <p className="text-yellow-400 font-bold">{item.discount}</p>
+                <p className="text-yellow-300 font-bold">{item.discount}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* オプション料金 */}
-        <section className="bg-gray-900 py-4 px-3">
-          <h2 className="text-white font-bold text-sm mb-3">オプション料金</h2>
-          <div className="bg-gray-800 rounded-lg overflow-hidden">
+        <section className="bg-white py-4 px-3">
+          <h2 className="text-gray-800 font-bold text-sm mb-3">オプション料金</h2>
+          <div className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200">
             {optionData.map((item, index) => (
-              <div key={index} className={`p-3 flex items-center justify-between ${index !== optionData.length - 1 ? "border-b border-gray-700" : ""}`}>
+              <div key={index} className={`p-3 flex items-center justify-between ${index !== optionData.length - 1 ? "border-b border-gray-200" : ""}`}>
                 <div>
-                  <p className="text-white font-bold text-sm">{item.name}</p>
-                  {item.note && <p className="text-gray-500 text-[10px]">{item.note}</p>}
+                  <p className="text-gray-800 font-bold text-sm">{item.name}</p>
+                  {item.note && <p className="text-gray-400 text-[10px]">{item.note}</p>}
                 </div>
-                <p className="text-pink-400 font-bold">{item.price}</p>
+                <p className="text-pink-500 font-bold">{item.price}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* サービス内容 */}
-        <section className="bg-gray-800 py-4 px-3">
-          <h2 className="text-white font-bold text-sm mb-3">サービス内容</h2>
-          <div className="space-y-3">
-            <div className="bg-gray-900 rounded-lg p-3">
-              <p className="text-pink-400 font-bold text-xs mb-2">基本サービス</p>
-              <div className="flex flex-wrap gap-2">
-                {["キス", "ディープキス", "全身リップ", "マッサージ", "フェラチオ", "素股"].map((item, i) => (
-                  <span key={i} className="bg-gray-800 text-gray-300 px-2 py-1 rounded text-[10px]">{item}</span>
-                ))}
-              </div>
+        <section className="bg-gray-50 py-4 px-3">
+          <h2 className="text-gray-800 font-bold text-sm mb-3">サービス内容</h2>
+          <div className="bg-white rounded-lg p-3 border border-gray-200">
+            <p className="text-pink-500 font-bold text-xs mb-2">基本サービス</p>
+            <div className="flex flex-wrap gap-2">
+              {["キス", "ディープキス", "全身リップ", "マッサージ", "フェラチオ", "素股"].map((item, i) => (
+                <span key={i} className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-[10px]">{item}</span>
+              ))}
             </div>
           </div>
         </section>

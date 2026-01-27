@@ -11,6 +11,7 @@ import { castMembers, categories } from "@/data/cast";
 /**
  * キャスト一覧ページ
  * PC版とモバイル版でレイアウトを分離
+ * 白基調デザイン
  */
 export default function CastPage() {
   const [selectedCategory, setSelectedCategory] = useState("すべて");
@@ -22,25 +23,25 @@ export default function CastPage() {
       : castMembers.filter((cast) => cast.category.includes(selectedCategory));
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-gray-50">
       <SiteHeader />
 
       {/* ===== PC版メインコンテンツ ===== */}
       <main className="hidden md:block">
         {/* ヘッダーセクション */}
-        <section className="relative py-16 bg-gradient-to-b from-gray-900 to-black">
+        <section className="relative py-16 bg-gradient-to-b from-pink-50 to-white">
           <div className="max-w-7xl mx-auto px-4 text-center">
-            <h1 className="text-4xl font-heading font-bold text-white mb-2">
-              <span className="text-pink-400">妖艶な</span>女性たち
+            <h1 className="text-4xl font-heading font-bold text-gray-800 mb-2">
+              <span className="text-pink-500">妖艶な</span>女性たち
             </h1>
-            <p className="text-gray-400">
+            <p className="text-gray-500">
               {filteredCasts.length}名の魅惑的な女性があなたを待っています
             </p>
           </div>
         </section>
 
         {/* フィルターセクション */}
-        <section className="sticky top-0 z-40 bg-gray-900/95 backdrop-blur-sm border-b border-pink-900/30">
+        <section className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex flex-wrap gap-2 justify-center">
               {categories.map((category) => (
@@ -50,7 +51,7 @@ export default function CastPage() {
                   className={`px-5 py-2 rounded-full font-medium transition-all duration-200 text-sm ${
                     selectedCategory === category
                       ? "bg-gradient-to-r from-pink-500 to-pink-600 text-white shadow-md"
-                      : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
                 >
                   {category}
@@ -61,7 +62,7 @@ export default function CastPage() {
         </section>
 
         {/* キャストグリッド */}
-        <section className="py-12">
+        <section className="py-12 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <AnimatePresence mode="wait">
               <motion.div
@@ -85,7 +86,7 @@ export default function CastPage() {
                       rel="noopener noreferrer"
                       className="block group"
                     >
-                      <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-3">
+                      <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-3 shadow-md">
                         <Image
                           src={cast.image}
                           alt={cast.name}
@@ -115,7 +116,7 @@ export default function CastPage() {
                           </p>
                         </div>
                       </div>
-                      <p className="text-xs text-gray-400 line-clamp-2 px-1">{cast.description}</p>
+                      <p className="text-xs text-gray-500 line-clamp-2 px-1">{cast.description}</p>
                     </a>
                   </motion.div>
                 ))}
@@ -124,7 +125,7 @@ export default function CastPage() {
 
             {filteredCasts.length === 0 && (
               <div className="text-center py-20">
-                <p className="text-gray-500">該当するキャストが見つかりませんでした</p>
+                <p className="text-gray-400">該当するキャストが見つかりませんでした</p>
               </div>
             )}
           </div>
@@ -153,17 +154,17 @@ export default function CastPage() {
       {/* ===== モバイル版メインコンテンツ ===== */}
       <main className="md:hidden">
         {/* ヘッダー */}
-        <section className="bg-gradient-to-b from-gray-900 to-black py-6 px-4 text-center">
-          <h1 className="text-2xl font-heading font-bold text-white mb-1">
-            <span className="text-pink-400">妖艶な</span>女性たち
+        <section className="bg-gradient-to-b from-pink-50 to-white py-6 px-4 text-center">
+          <h1 className="text-2xl font-heading font-bold text-gray-800 mb-1">
+            <span className="text-pink-500">妖艶な</span>女性たち
           </h1>
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-gray-500">
             {filteredCasts.length}名の魅惑的な女性があなたを待っています
           </p>
         </section>
 
         {/* フィルター */}
-        <section className="sticky top-0 z-40 bg-gray-900/95 backdrop-blur-sm border-b border-pink-900/30 px-3 py-3">
+        <section className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 px-3 py-3">
           <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
             {categories.map((category) => (
               <button
@@ -172,7 +173,7 @@ export default function CastPage() {
                 className={`px-4 py-1.5 rounded-full font-medium transition-all duration-200 text-xs whitespace-nowrap flex-shrink-0 ${
                   selectedCategory === category
                     ? "bg-gradient-to-r from-pink-500 to-pink-600 text-white"
-                    : "bg-gray-800 text-gray-300"
+                    : "bg-gray-100 text-gray-600"
                 }`}
               >
                 {category}
@@ -182,7 +183,7 @@ export default function CastPage() {
         </section>
 
         {/* キャストグリッド */}
-        <section className="p-3">
+        <section className="p-3 bg-white">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedCategory}
@@ -204,7 +205,7 @@ export default function CastPage() {
                     rel="noopener noreferrer"
                     className="block"
                   >
-                    <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-2">
+                    <div className="relative aspect-[3/4] rounded-lg overflow-hidden mb-2 shadow-md">
                       <Image
                         src={cast.image}
                         alt={cast.name}
@@ -237,7 +238,7 @@ export default function CastPage() {
 
           {filteredCasts.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-sm">該当するキャストが見つかりませんでした</p>
+              <p className="text-gray-400 text-sm">該当するキャストが見つかりませんでした</p>
             </div>
           )}
         </section>

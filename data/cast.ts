@@ -131,6 +131,20 @@ export const castMembers: CastMember[] = [
     image: "/images/cast/ゆい【とろけるパイパン♡】.jpeg",
     description: "とろけるパイパン。清楚な見た目に隠された、妖しい魅力で理性を失わせる。",
   },
+  {
+    id: 9,
+    name: "かれん【エロい体に虜 黒髪美女】",
+    age: 21,
+    height: 160,
+    bust: 86,
+    cup: "D",
+    waist: 57,
+    hip: 85,
+    bodyType: "スレンダー",
+    category: ["新人", "人気"],
+    image: "/images/cast/かれん【エロい体に虜♡黒髪美女】.jpeg",
+    description: "エロい体に虜になる黒髪美女。Dカップの魅惑的なボディと艶やかな黒髪があなたを誘惑する。",
+  },
 ];
 
 export const categories = [

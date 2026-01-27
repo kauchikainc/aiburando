@@ -6,12 +6,13 @@ import Image from "next/image";
 /**
  * サイト共通ヘッダーコンポーネント
  * PC版とモバイル版でレイアウトを分離
+ * 白基調デザイン
  */
 export default function SiteHeader() {
   return (
     <>
       {/* PC版ヘッダー（md以上で表示） */}
-      <header className="hidden md:block bg-black border-b border-pink-900/50">
+      <header className="hidden md:block bg-white border-b border-gray-200">
         {/* トップバー */}
         <div className="bg-gradient-to-r from-pink-600 via-pink-500 to-pink-600 py-1">
           <div className="max-w-7xl mx-auto px-4 flex items-center justify-between text-white text-xs">
@@ -28,22 +29,20 @@ export default function SiteHeader() {
         {/* メインヘッダー */}
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link href="/home">
-            <div className="bg-white p-2 rounded">
-              <Image
-                src="/images/logo.png"
-                alt="アイブランド帯広"
-                width={200}
-                height={60}
-                className="h-auto"
-              />
-            </div>
+            <Image
+              src="/images/logo.png"
+              alt="アイブランド帯広"
+              width={200}
+              height={60}
+              className="h-auto"
+            />
           </Link>
 
           <nav className="flex items-center gap-6">
-            <Link href="/home" className="text-white hover:text-pink-400">TOP</Link>
-            <Link href="/cast" className="text-white hover:text-pink-400">キャスト</Link>
-            <Link href="/system" className="text-white hover:text-pink-400">料金システム</Link>
-            <Link href="/info" className="text-white hover:text-pink-400">店舗情報</Link>
+            <Link href="/home" className="text-gray-700 hover:text-pink-500">TOP</Link>
+            <Link href="/cast" className="text-gray-700 hover:text-pink-500">キャスト</Link>
+            <Link href="/system" className="text-gray-700 hover:text-pink-500">料金システム</Link>
+            <Link href="/info" className="text-gray-700 hover:text-pink-500">店舗情報</Link>
             <a
               href="https://www.cityheaven.net"
               target="_blank"
@@ -57,8 +56,8 @@ export default function SiteHeader() {
       </header>
 
       {/* モバイル版ヘッダー（md未満で表示） */}
-      <header className="md:hidden bg-gradient-to-r from-pink-600 via-pink-500 to-pink-600 text-white">
-        <div className="flex items-center justify-between px-3 py-2 bg-white">
+      <header className="md:hidden bg-white border-b border-gray-200">
+        <div className="flex items-center justify-between px-3 py-2">
           <Link href="/home">
             <Image
               src="/images/logo.png"
@@ -78,12 +77,12 @@ export default function SiteHeader() {
             電話予約
           </a>
         </div>
-        <nav className="flex justify-around text-xs py-2 bg-black/20">
-          <Link href="/home" className="hover:text-pink-200">TOP</Link>
-          <Link href="/cast" className="hover:text-pink-200">キャスト</Link>
-          <Link href="/system" className="hover:text-pink-200">料金</Link>
-          <Link href="/info" className="hover:text-pink-200">店舗情報</Link>
-          <a href="https://www.cityheaven.net" target="_blank" rel="noopener noreferrer" className="hover:text-pink-200">出勤表</a>
+        <nav className="flex justify-around text-xs py-2 bg-gray-50 border-t border-gray-200 text-gray-700">
+          <Link href="/home" className="hover:text-pink-500">TOP</Link>
+          <Link href="/cast" className="hover:text-pink-500">キャスト</Link>
+          <Link href="/system" className="hover:text-pink-500">料金</Link>
+          <Link href="/info" className="hover:text-pink-500">店舗情報</Link>
+          <a href="https://www.cityheaven.net" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500">出勤表</a>
         </nav>
       </header>
     </>
