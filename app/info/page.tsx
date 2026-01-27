@@ -87,7 +87,6 @@ export default function InfoPage() {
                       <p className="text-gray-400 text-sm">お支払い方法</p>
                       <div className="flex gap-2 mt-1">
                         <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded text-sm">現金</span>
-                        <span className="bg-gray-800 text-gray-300 px-3 py-1 rounded text-sm">クレジットカード</span>
                       </div>
                     </div>
                   </div>
@@ -258,7 +257,7 @@ export default function InfoPage() {
               </div>
               <div>
                 <p className="text-gray-400 text-[10px]">お支払い</p>
-                <p className="text-white font-bold text-sm">現金 / クレジットカード</p>
+                <p className="text-white font-bold text-sm">現金</p>
               </div>
             </div>
           </div>

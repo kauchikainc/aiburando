@@ -9,7 +9,8 @@
       "Bash(tree:*)",
       "Bash(npm run build:*)",
       "Bash(npm i:*)",
-      "Bash(npm audit fix:*)"
+      "Bash(npm audit fix:*)",
+      "Bash(TZ=Asia/Tokyo xargs:*)"
     ],
     "deny": [],
     "ask": []

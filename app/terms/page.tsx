@@ -76,7 +76,7 @@ export default function TermsPage() {
                   </p>
                   <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4 text-sm md:text-base">
                     <li>料金は、サービス開始前にお支払いいただきます</li>
-                    <li>お支払い方法は、現金またはクレジットカードとなります</li>
+                    <li>お支払い方法は、現金となります</li>
                     <li>一度お支払いいただいた料金の返金はいたしかねます</li>
                   </ul>
                 </div>

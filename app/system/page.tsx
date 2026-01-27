@@ -19,8 +19,7 @@ export default function SystemPage() {
 
   const optionData = [
     { name: "指名料", price: "2,000円" },
-    { name: "交通費", price: "3,000円〜", note: "エリアにより変動" },
-    { name: "ホテル代", price: "実費", note: "お客様負担" },
+    { name: "交通費", price: "実費", note: "お客様負担" },
     { name: "延長30分", price: "8,000円" },
   ];
 
@@ -81,7 +80,7 @@ export default function SystemPage() {
               ))}
             </div>
             <p className="text-center text-gray-500 text-sm mt-6">
-              ※上記料金には、指名料・ホテル代は含まれておりません
+              ※上記料金には、指名料・交通費は含まれておりません
             </p>
           </div>
         </section>
@@ -153,21 +152,6 @@ export default function SystemPage() {
                   ))}
                 </div>
               </div>
-              <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-                <div className="inline-block bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-1 rounded-full font-bold text-sm mb-4">
-                  無料オプション
-                </div>
-                <div className="grid grid-cols-2 gap-3 text-gray-300">
-                  {["ローション", "コスプレ", "電マ", "バイブ", "聖水", "即尺"].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <svg className="w-4 h-4 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
             <div className="mt-6 bg-yellow-900/30 border-l-4 border-yellow-500 p-4 rounded-r-lg">
               <p className="text-yellow-200 text-sm">
@@ -231,7 +215,7 @@ export default function SystemPage() {
             ))}
           </div>
           <p className="text-gray-500 text-[10px] mt-2 text-center">
-            ※指名料・ホテル代は別途
+            ※指名料・交通費は別途
           </p>
         </section>
 
@@ -275,14 +259,6 @@ export default function SystemPage() {
               <p className="text-pink-400 font-bold text-xs mb-2">基本サービス</p>
               <div className="flex flex-wrap gap-2">
                 {["キス", "ディープキス", "全身リップ", "マッサージ", "フェラチオ", "素股"].map((item, i) => (
-                  <span key={i} className="bg-gray-800 text-gray-300 px-2 py-1 rounded text-[10px]">{item}</span>
-                ))}
-              </div>
-            </div>
-            <div className="bg-gray-900 rounded-lg p-3">
-              <p className="text-purple-400 font-bold text-xs mb-2">無料オプション</p>
-              <div className="flex flex-wrap gap-2">
-                {["ローション", "コスプレ", "電マ", "バイブ", "聖水", "即尺"].map((item, i) => (
                   <span key={i} className="bg-gray-800 text-gray-300 px-2 py-1 rounded text-[10px]">{item}</span>
                 ))}
               </div>
